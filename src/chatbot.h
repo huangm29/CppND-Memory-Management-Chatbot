@@ -29,7 +29,7 @@ public:
 
     //// STUDENT CODE
     ////
-
+    ChatBot(const ChatBot &bot);
     ////
     //// EOF STUDENT CODE
 

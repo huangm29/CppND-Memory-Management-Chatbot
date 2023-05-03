@@ -45,6 +45,20 @@ ChatBot::~ChatBot()
 //// STUDENT CODE
 ////
 
+//Copy Constructor
+ChatBot::ChatBot(const ChatBot &bot)
+{
+    // invalidate data handles
+    if (bot._image != NULL and bot._image != nullptr){
+        _image = new wxBitmap(*bot._image);
+    }
+    else {
+        _image = bot._image;
+    }
+    _chatLogic = bot._chatLogic;
+    _rootNode = bot._rootNode;
+}
+
 ////
 //// EOF STUDENT CODE
 
