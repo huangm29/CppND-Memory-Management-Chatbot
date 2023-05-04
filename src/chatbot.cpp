@@ -77,7 +77,7 @@ ChatBot& ChatBot::operator=(const ChatBot& bot) {
     }
 
 //Move Constructor
-ChatBot::ChatBot(const ChatBot &&bot)
+ChatBot::ChatBot(const ChatBot&& bot)
 {
     _image = bot._image;
     _chatLogic = bot._chatLogic;
