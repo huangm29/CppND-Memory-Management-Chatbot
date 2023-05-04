@@ -59,6 +59,55 @@ ChatBot::ChatBot(const ChatBot &bot)
     _rootNode = bot._rootNode;
 }
 
+//Copy Assignment Constructor
+ChatBot& ChatBot::operator=(const ChatBot& bot) {
+    if (this == &bot) {
+        return *bot; // Avoid self-assignment
+    }
+    if (bot._image != NULL and bot._image != nullptr){
+        delete _image;
+        _image = new wxBitmap(*bot._image);
+    }
+    else {
+        _image = bot._image;
+    }
+    _chatLogic = bot._chatLogic;
+    _rootNode = bot._rootNode;
+    return *this;
+    }
+
+//Move Constructor
+ChatBot::ChatBot(const ChatBot &&bot)
+{
+    _image = bot._image;
+    _chatLogic = bot._chatLogic;
+    _rootNode = bot._rootNode;
+    bot._image = nullptr;
+    bot._chatLogic = nullptr;
+    bot._rootNode = nullptr;
+}
+
+//Move Assignment Constructor
+ChatBot& ChatBot::operator=(const ChatBot& bot) {
+    if (this == &bot) {
+        return *bot; // Avoid self-assignment
+    }
+    if (bot._image != NULL and bot._image != nullptr){
+        delete _image;
+        _image = new wxBitmap(*bot._image);
+    }
+    else {
+        _image = bot._image;
+    }
+    _chatLogic = bot._chatLogic;
+    _rootNode = bot._rootNode;
+    bot._image = nullptr;
+    bot._chatLogic = nullptr;
+    bot._rootNode = nullptr;
+    return *this;
+    }
+
+
 ////
 //// EOF STUDENT CODE
 
