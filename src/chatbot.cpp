@@ -62,7 +62,7 @@ ChatBot::ChatBot(const ChatBot &bot)
 //Copy Assignment Constructor
 ChatBot& ChatBot::operator=(const ChatBot& bot) {
     if (this == &bot) {
-        return *bot; // Avoid self-assignment
+        return *this; // Avoid self-assignment
     }
     if (bot._image != NULL and bot._image != nullptr){
         delete _image;
@@ -77,7 +77,7 @@ ChatBot& ChatBot::operator=(const ChatBot& bot) {
     }
 
 //Move Constructor
-ChatBot::ChatBot(const ChatBot&& bot)
+ChatBot::ChatBot(ChatBot&& bot)
 {
     _image = bot._image;
     _chatLogic = bot._chatLogic;
@@ -88,9 +88,9 @@ ChatBot::ChatBot(const ChatBot&& bot)
 }
 
 //Move Assignment Constructor
-ChatBot& ChatBot::operator=(const ChatBot& bot) {
+ChatBot& ChatBot::operator=(ChatBot&& bot) {
     if (this == &bot) {
-        return *bot; // Avoid self-assignment
+        return *this; // Avoid self-assignment
     }
     if (bot._image != NULL and bot._image != nullptr){
         delete _image;
