@@ -7,9 +7,6 @@ GraphNode::~GraphNode() {
   //// STUDENT CODE
   ////
 
-  // delete _chatBot;
-  // This is called twice!
-
   ////
   //// EOF STUDENT CODE
 }
@@ -22,7 +19,7 @@ void GraphNode::AddEdgeToParentNode(GraphEdge *edge) {
 
 void GraphNode::AddEdgeToChildNode(std::unique_ptr<GraphEdge> edge) {
   _childEdges.push_back(std::move(edge)); // move semantics
-}
+} // This function is modified as well
 
 //// STUDENT CODE
 ////
@@ -33,7 +30,6 @@ void GraphNode::MoveChatbotHere(ChatBot chatbot) {
 
 void GraphNode::MoveChatbotToNewNode(GraphNode *newNode) {
   newNode->MoveChatbotHere(std::move(_chatBot));
-  // _chatBot = nullptr; // invalidate pointer at source
 }
 ////
 //// EOF STUDENT CODE
